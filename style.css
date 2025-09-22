@@ -1,0 +1,472 @@
+:root {
+        --sidebar-bg: #061e44f9;
+        --sidebar-hover: #090b3d82;
+        --main-bg: #ebf3f5;
+      }
+      a{
+        color: white !important;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: var(--main-bg);
+      }
+      
+
+      .sidebar {
+        background: linear-gradient(180deg, var(--sidebar-bg) 0%, #05639a 100%);
+        min-height: 100vh;
+        width: 190px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .sidebar.collapsed {
+        width: 70px;
+      }
+
+      .sidebar-brand {
+        padding: 1.5rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .sidebar-brand img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .sidebar-brand span {
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-left: 0.5rem;
+      }
+
+      .sidebar-nav {
+        padding: 1rem 0;
+      }
+
+      .nav-item {
+        margin: 0.25rem 0;
+      }
+
+      .nav-link {
+        color: rgba(255, 255, 255, 0.8);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        background-color: var(--sidebar-hover);
+        color: white;
+      }
+
+      .nav-link i {
+        width: 20px;
+        margin-right: 0.75rem;
+      }
+
+      .main-content {
+        margin-left: 190px;
+        transition: all 0.3s ease;
+        
+      }
+
+      .main-content.expanded {
+        margin-left: 70px;
+      }
+
+      .top-navbar {
+        background: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 1rem 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .dashboard-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #333;
+      }
+
+      .stats-card {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 5rem;
+      }
+
+      /* Improved donut chart cards */
+    .improved-card {
+      border-radius: 14px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+     
+    }
+
+    .improved-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .bg-improved-card-header-blue {
+      background: linear-gradient(90deg, #43d2e9, #1e3f73);
+      color:white;
+    }
+
+    .improved-card .card-header h6 {
+      color: #fff;
+      margin: 0;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+
+      .chart-container {
+        position: relative;
+        /* height: 300px; */
+      }
+
+      .chart-legend {
+        margin-top: 1rem;
+      }
+
+      .legend-item {
+        display: flex;
+        align-items: center;
+        margin: 0.25rem 0;
+        font-size: 0.9rem;
+      }
+
+      .legend-color {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 0.5rem;
+      }
+
+      .bar-chart-container {
+        background: white;
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .category-tabs {
+        background: var(--sidebar-bg);
+        border-radius: 8px 8px 0 0;
+        display: flex;
+        margin: -1.5rem -1.5rem 1.5rem -1.5rem;
+      }
+
+      .category-tab {
+        flex: 1;
+        padding: 1rem;
+        text-align: center;
+        color: white;
+        font-weight: 600;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .category-tab:last-child {
+        border-right: none;
+      }
+
+      .sidebar-toggle {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+      }
+      .crossico{
+        display: none;
+
+      }
+
+      @media (max-width: 768px) {
+        .sidebar {
+          transform: translateX(-100%);
+        }
+      .crossico{
+        display: block;
+
+      }
+
+        .sidebar.show {
+          transform: translateX(0);
+        }
+
+        .main-content {
+          margin-left: 0;
+        }
+
+        .main-content.expanded {
+          margin-left: 0;
+        }
+      }
+
+     
+      /* Hide text when sidebar is collapsed */
+      .sidebar.collapsed .sidebar-text {
+        display: none;
+      }
+
+      .sidebar.collapsed .nav-link {
+        justify-content: center; 
+        padding: 0.75rem 0; 
+      }
+
+      .sidebar.collapsed .nav-link i {
+        margin-right: 0; 
+      }
+      .dashboard-main {
+        display: flex;
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+
+      /* Charts Section (10/12 width) */
+      .charts-section {
+        flex: 5; /* 10/12 = 5 parts */
+        display: flex;
+        width: 80%;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+
+      /* Donut charts in flex row */
+      .donut-charts-row {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .donut-card {
+        flex: 1;
+        min-width: 250px; /* Ensure responsiveness */
+      }
+
+      /* Bar chart styling */
+      .bar-chart-container {
+        background: white;
+        border-radius: 10px;
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Right Sidebar (2/12 width) */
+      .right-sidebar {
+        border-radius: 10px;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: sticky;
+        top: 20px;
+        height: fit-content;
+      }
+
+      .right-sidebar button {
+        background: none;
+        border: none;
+        color: #2c5aa0;
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+        padding: 0.75rem 1rem;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      .right-sidebar button:hover {
+        background: #2c5aa0;
+        color: #f8f9fa;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .dashboard-main {
+          flex-direction: column;
+        }
+
+        .charts-section,
+        .right-sidebar {
+          flex: 1;
+          width: 100%;
+        }
+
+        .donut-charts-row {
+          flex-direction: column;
+        }
+      }
+      .sidebar-right {
+        position: fixed;
+        right: 10px;
+        top: 100px;
+        background: transparent;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        color: #30415d;
+        z-index: 1000;
+        text-align: right;
+        width: auto; /* Allow content to define width */
+  padding: 10px; 
+      }
+      .sidebar-right .icon-btn{
+border-radius: 15px;
+padding: 5px;
+      }
+      .sidebar-right .icon-btn i {
+        cursor: pointer;
+        transition: color 0.3s ease;
+        
+        font-size: 20px;
+      }
+
+      .icon-btn:hover {
+        color: white !important;
+        background-color:var(--sidebar-hover) !important;
+      }
+      .icontext {
+  display: none;
+}
+
+.icon-btn:hover .icontext {
+  display: inline;
+}
+
+
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  /* Sidebar-right hidden on mobile */
+  .sidebar-right {
+    display: none;
+  }
+
+  /* Main content full width */
+  .container-fluid > .row > .col-11,
+  .container-fluid > .row > .col-1 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  /* Chart containers scale better */
+  .chart-container {
+    min-height: 250px;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  /* Cards stack neatly */
+  .card .card-body {
+    flex-direction: column;
+    text-align: center;
+  }
+  .card .card-body i {
+    margin-top: 10px;
+  }
+}
+
+
+/* Extra Small Devices (phones, 0 - 575px) */
+@media (max-width: 575.98px) {
+  .card .card-body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .card .card-body i {
+    margin-top: 10px;
+  }
+
+  .dashboard-title {
+    font-size: 1.25rem;
+  }
+
+  .top-navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Small Devices (phones, 576px - 767px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .card .card-body {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .chart-container {
+    min-height: 200px;
+  }
+}
+
+/* Medium Devices (tablets, 768px - 991px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  /* Sidebar hidden by default (like mobile) */
+  .sidebar {
+    transform: translateX(-100%);
+    width: 190px;
+    position: fixed;
+    z-index: 1100;
+    transition: all 0.3s ease;
+  }
+  .sidebar.show {
+    transform: translateX(0);
+  }
+
+  /* Cross icon visible for closing */
+  .crossico {
+    display: block;
+  }
+
+  /* Main content full width */
+  .main-content {
+    margin-left: 0;
+  }
+
+  /* If expanded class is added */
+  .main-content.expanded {
+    margin-left: 0;
+  }
+
+  /* Optional: center icons when collapsed (if you still want collapse option) */
+  .sidebar.collapsed .nav-link {
+    justify-content: center;
+  }
+
+  .sidebar.collapsed .nav-link i {
+    margin-right: 0;
+  }
+
+  .chart-container {
+    height: auto;
+    width: 100%;
+  }
+}
+
+
+
+
+
+
